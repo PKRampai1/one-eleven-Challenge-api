@@ -1,14 +1,14 @@
 from fastapi import FastAPI
 
 app = FastAPI()
-
+word
 @app.get("/")
 def read_root():
     return {"message": "Hello, World!"}
 
-@app.get("/words")
-def create_item(word: str):
-    a = list(word)
+@app.get("/data")
+def create_item(data: str):
+    a = list(data)
     a.sort()
 
-    return a
+    return {"word": a}
