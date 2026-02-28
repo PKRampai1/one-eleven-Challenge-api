@@ -1,5 +1,7 @@
 from fastapi import FastAPI ,Request
 from pydantic import BaseModel
+import re
+
 
 app = FastAPI()
 
@@ -7,9 +9,7 @@ app = FastAPI()
 def read_root():
     return {"message": "Hello, World!"}
 
-class Item(BaseModel):
-    data: str
- 
+
 
 @app.post("/data")
 async def webhook(request: Request):
@@ -19,4 +19,4 @@ async def webhook(request: Request):
    
     a = list(s2)
     a.sort()
-    return {"word": "\"".join(a)}
+    return {"word": "".join(a)}
