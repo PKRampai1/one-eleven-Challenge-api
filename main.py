@@ -14,8 +14,9 @@ class Item(BaseModel):
 @app.post("/data")
 async def webhook(request: Request):
     data = await request.body()
+     word = data.decode("utf-8")
     s2 = re.sub(r'[^a-zA-Z0-9]', '', word)
-    word = data.decode("utf-8")
+   
     a = list(s2)
     a.sort()
     return {"word": "\"".join(a)}
