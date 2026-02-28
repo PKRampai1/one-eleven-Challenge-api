@@ -17,4 +17,4 @@ async def webhook(request: Request):
     word = data.decode("utf-8")
     a = list(word)
     a.sort()
-    return {"word": "".join(a)}
+    return {"word": a}
