@@ -16,7 +16,7 @@ async def webhook(request: Request):
     data = await request.body()
     word = data.decode("utf-8")
     parsed = json.loads(word)
-    s2 = re.sub(r'[^a-zA-Z0-9]', '', parsed)
+    s2 = re.sub(r'[^a-zA-Z0-9]', '', parsed["data"])
   
     a = list(s2)
     a.sort()
