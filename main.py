@@ -6,7 +6,7 @@ app = FastAPI()
 def read_root():
     return {"message": "Hello, World!"}
 
-@app.post("/words")
+@app.get("/words")
 def create_item(word: str):
     a = list(word)
     a.sort()
