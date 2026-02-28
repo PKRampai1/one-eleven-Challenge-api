@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI ,Request
 from pydantic import BaseModel
 
 app = FastAPI()
@@ -11,10 +11,10 @@ class Item(BaseModel):
     data: str
  
 
-@app.get("/data")
-def create_item(item: Item):
-
-    a = list(item.data)
+@app.post("/data")
+async def webhook(request: Request):
+    data = await request.body()
+    word = data.decode("utf-8")
+    a = list(word)
     a.sort()
-
-    return {"word": a}
+    return {"word": "".join(a)}
