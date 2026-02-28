@@ -19,4 +19,4 @@ async def webhook(request: Request):
    
     a = list(s2)
     a.sort()
-    return {"word": "".join(a)}
+    return {"word": a}
