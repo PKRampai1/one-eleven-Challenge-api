@@ -19,5 +19,5 @@ async def webhook(request: Request):
   
     a = list(s2)
     a.sort()
-    a = [f'"{char}"' for char in a]
+    a = [f'{char}' for char in a]
     return {"word": a}
