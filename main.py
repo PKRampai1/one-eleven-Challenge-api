@@ -11,7 +11,7 @@ class Item(BaseModel):
     data: str
  
 
-@app.post("/data")
+@app.get("/data")
 def create_item(item: Item):
 
     a = list(item.data)
